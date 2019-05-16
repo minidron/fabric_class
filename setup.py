@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fabric_class',
-    version='0.0.0',
+    version='0.0.1',
     author='Pavel Alekin',
     author_email='pavel.alekin@gmail.com',
     description='Fabric functions as class',
