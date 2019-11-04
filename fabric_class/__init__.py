@@ -116,7 +116,7 @@ class BaseFabric:
         """
         Отправить изменения из локального репозитория в основной.
         """
-        local('git push origin {0}' % self.git_branch)
+        local('git push origin %s' % self.git_branch)
 
 
 class LocalDjangoMixin:
