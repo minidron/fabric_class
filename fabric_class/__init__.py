@@ -235,7 +235,7 @@ class DjangoFabric(LocalDjangoMixin, RemoteDjangoMixin, BaseFabric):
         """
         media_path = os.path.join(self.get_remote_project_path(), 'media')
         local_path = self.get_local_project_path()
-        local('rsync -avhe ssh --no-perms %s:%s %s' % (
+        local('rsync -avhe ssh --no-perms --omit-dir-times %s:%s %s' % (
             env.host_string, media_path, local_path))
         local('sudo chown -R www-data:www-data %s/media' % local_path)
         local('sudo chmod -R g+w %s/media' % local_path)
@@ -256,7 +256,7 @@ class DjangoFabric(LocalDjangoMixin, RemoteDjangoMixin, BaseFabric):
         Выполняет sync_media и sync_db.
         """
         self.fab_sync_media()
-        self.fab_syncdb()
+        self.fab_sync_db()
 
     def fab_deploy(self):
         """
